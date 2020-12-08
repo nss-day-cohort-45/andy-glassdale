@@ -26,11 +26,24 @@ const render = convictionsCollection => {
   contentTarget.innerHTML = `
       <select class="dropdown" id="crimeSelect">
           <option value="0">Please select a crime...</option>
-          ${
-            convictionsCollection.map(c => 
-              `<option value="${c.id}">${c.name}</option>`
-            ).join("")
-          }
+          ${convictionsCollection.map(c =>
+            `<option value="${c.id}">${c.name}</option>`
+          ).join("")}
       </select>
-    `
+    `;
 }
+
+const eventHub = document.querySelector('.container');
+eventHub.addEventListener("change", (evt) => {
+  if (evt.target.id !== "crimeSelect") {
+    return;
+  }
+
+  console.log(evt.target.value);
+
+  eventHub.dispatchEvent(new CustomEvent("CrimeSelected", {
+    detail: {
+      crimeId: parseInt(evt.target.value)
+    }
+  }));
+});
