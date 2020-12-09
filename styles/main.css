@@ -1,6 +1,6 @@
 .criminalsContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
@@ -15,3 +15,54 @@
   font-weight: bold;
 }
 
+.main-content {
+  display: flex;
+}
+
+.criminalsContainer {
+  flex-grow: 3;
+}
+
+.noteListContainer {
+  flex-grow: 1;
+  margin: 0 10px;
+}
+
+.noteFormContainer {
+  width: 200px;
+}
+.noteFormContainer * {
+  width: 100%;
+  margin: 2px;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.noteListButton {
+  border-top: 1px solid black;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.noteListButton button {
+  width: 100%;
+  margin: 2px;
+}
+
+.noteList {
+  border: 1px solid gray;
+  margin: 2px 0 0 2px;
+}
+
+.note {
+  margin: 10px;
+}
+
+.note:not(:first-child) {
+  border-top: 1px solid gray;
+  padding-top: 10px;
+}
+
+.note__text {
+  font-weight: bold;
+}
