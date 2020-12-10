@@ -9,5 +9,5 @@ export const getCriminals = () => {
     .then(resp => resp.json())
     .then(parsedCriminals => {
       criminals = parsedCriminals;
-    })
-}
+    });
+};

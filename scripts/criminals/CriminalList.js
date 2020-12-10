@@ -1,6 +1,7 @@
 import { useConvictions } from '../convictions/ConvictionProvider.js';
 import { Criminal } from './Criminal.js';
 import { getCriminals, useCriminals } from './CriminalProvider.js';
+import './AssociateDialog.js';
 
 const render = (criminals) => {
   const container = document.querySelector(".criminalsContainer");
@@ -19,7 +20,7 @@ eventHub.addEventListener("CrimeSelected", (evt) => {
   const criminals = useCriminals();
 
   if (selectedConviction) {
-    render( criminals.filter(c => c.conviction === selectedConviction.name));
+    render(criminals.filter(c => c.conviction === selectedConviction.name));
   } else {
     render(criminals);
   }
