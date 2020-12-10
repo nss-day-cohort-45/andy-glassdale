@@ -8,14 +8,15 @@ eventHub.addEventListener('associatesChosen', evt => {
 
   openDialog(chosenCriminal.known_associates);
 });
+
 eventHub.addEventListener('click', evt => {
-  if (evt.target.id === 'close-associate-dialog' || 
-      evt.target.classList.contains('associate-dialog')) {
+  if (evt.target.id === 'close-associate-dialog' ||
+    evt.target.classList.contains('associate-dialog')) {
     closeDialog();
   }
 })
 window.addEventListener('keydown', evt => {
-  if (evt.key === "Escape") {
+  if (evt.key === 'Escape') {
     closeDialog();
   }
 });
@@ -40,7 +41,7 @@ const AssociateDialog = (associates) => {
         <div class="associate-dialog__list">
           ${associates.map(ass => AssociateCard(ass)).join("")}
         </div>
-        <button id="close-associate-dialog">Close</button>
+          <button id="close-associate-dialog">Close</button>
       </div>
     </section>
   `;
