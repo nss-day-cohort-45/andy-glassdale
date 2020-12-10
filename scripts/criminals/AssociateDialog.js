@@ -9,11 +9,9 @@ eventHub.addEventListener('associateChosen', evt => {
   showDialog(chosenCriminal.known_associates);
 });
 eventHub.addEventListener('click', evt => {
-  if (evt.target.id !== 'close-associate-dialog') {
-    return;
+  if (evt.target.id === 'close-associate-dialog') {
+    closeDialog();
   }
-
-  closeDialog();
 })
 window.addEventListener('keydown', evt => {
   if (evt.key === "Escape") {
@@ -33,6 +31,19 @@ const showDialog = (associates) => {
 };
 
 
+const AssociateDialog = (associates) => {
+  return `
+    <section class="associate-dialog">
+      <div class="associate-dialog__body">
+        <div class="associate-dialog__list">
+          ${associates.map(ass => AssociateCard(ass)).join("")}
+        </div>
+        <button id="close-associate-dialog">Close</button>
+      </div>
+    </section>
+  `;
+};
+
 const AssociateCard = (associate) => {
   return `
     <div class="associate-dialog__card">
@@ -42,15 +53,3 @@ const AssociateCard = (associate) => {
   `;
 };
 
-const AssociateDialog = (associates) => {
-  return `
-    <section class="associate-dialog">
-      <div class="associate-dialog__body">
-        <div class="associate-dialog__list">
-          ${associates.map(AssociateCard).join("")}
-        </div>
-        <button id="close-associate-dialog">Close</button>
-      </div>
-    </section>
-  `;
-};
