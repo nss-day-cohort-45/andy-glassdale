@@ -1,15 +1,16 @@
 import { useCriminals } from "./CriminalProvider.js";
 
 const eventHub = document.querySelector('.container');
-eventHub.addEventListener('associateChosen', evt => {
+eventHub.addEventListener('associatesChosen', evt => {
   const criminalId = evt.detail.criminalId;
   const criminals = useCriminals();
   const chosenCriminal = criminals.find(c => c.id === criminalId);
 
-  showDialog(chosenCriminal.known_associates);
+  openDialog(chosenCriminal.known_associates);
 });
 eventHub.addEventListener('click', evt => {
-  if (evt.target.id === 'close-associate-dialog') {
+  if (evt.target.id === 'close-associate-dialog' || 
+      evt.target.classList.contains('associate-dialog')) {
     closeDialog();
   }
 })
@@ -25,7 +26,7 @@ const closeDialog = () => {
   container.innerHTML = "";
 };
 
-const showDialog = (associates) => {
+const openDialog = (associates) => {
   const container = document.querySelector('.dialog-container');
   container.innerHTML = AssociateDialog(associates);
 };
@@ -35,6 +36,7 @@ const AssociateDialog = (associates) => {
   return `
     <section class="associate-dialog">
       <div class="associate-dialog__body">
+        <h1>Known Associates</h1>
         <div class="associate-dialog__list">
           ${associates.map(ass => AssociateCard(ass)).join("")}
         </div>

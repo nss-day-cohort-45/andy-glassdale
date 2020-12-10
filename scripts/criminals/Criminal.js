@@ -7,7 +7,7 @@ eventHub.addEventListener('click', evt => {
   const idParts = evt.target.id.split('--');
   const criminalId = parseInt(idParts[1]);
 
-  eventHub.dispatchEvent(new CustomEvent('associateChosen', {
+  eventHub.dispatchEvent(new CustomEvent('associatesChosen', {
     detail: { criminalId }
   }));
 });

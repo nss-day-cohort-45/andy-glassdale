@@ -15,6 +15,15 @@
   font-weight: bold;
 }
 
+.criminal__card button {
+  margin-top: 10px;
+  width: 100%;
+  background-color: darkgrey;
+  color: white;
+  font-size: 1.1em;
+  padding: 5px 0;
+}
+
 .main-content {
   display: flex;
 }
@@ -87,6 +96,11 @@
   box-shadow: 2px 4px black;
 }
 
+.associate-dialog__body h1 {
+  border-bottom: 1px solid gray;
+  margin-top: 0;
+}
+
 .associate-dialog__card {
   margin: 10px 0;
 }
@@ -97,4 +111,12 @@
 
 .associate-dialog__alibi {
   font-style: italic;
+}
+
+#close-associate-dialog {
+  margin-top: 10px;
+  float: right;
+  background-color: darkgrey;
+  color: white;
+  padding: 5px 10px;
 }
